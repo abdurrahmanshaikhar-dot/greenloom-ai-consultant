@@ -1,5 +1,5 @@
 import streamlit as st
-from main import generate_report
+from main import generate_report  # FIXED IMPORT
 
 st.set_page_config(
     page_title="AI Business Consultant",
@@ -7,14 +7,11 @@ st.set_page_config(
     layout="wide"
 )
 
-# ==================================================
+# =========================
 # SIDEBAR
-# ==================================================
-
+# =========================
 with st.sidebar:
-
     st.header("About")
-
     st.write("""
 AI Business Consultant
 
@@ -23,30 +20,17 @@ Built with:
 - OpenRouter
 - Multi-Agent Architecture
 - DuckDuckGo Search
-
-Agents:
-- Research Analyst
-- Strategy Consultant
-- Report Writer
 """)
 
-# ==================================================
-# MAIN PAGE
-# ==================================================
-
+# =========================
+# MAIN UI
+# =========================
 st.title("📊 AI Business Consultant")
 
 st.write("Analyze a company and generate strategic recommendations.")
 
-company = st.text_input(
-    "Company Name",
-    placeholder="Tesla"
-)
-
-problem = st.text_area(
-    "Business Problem",
-    placeholder="Vehicle sales are declining..."
-)
+company = st.text_input("Company Name", placeholder="Tesla")
+problem = st.text_area("Business Problem", placeholder="Vehicle sales are declining...")
 
 if st.button("Generate Report"):
 
@@ -54,10 +38,10 @@ if st.button("Generate Report"):
 
         with st.spinner("Running AI Agents..."):
 
+            # FIXED FUNCTION CALL
             report = generate_report(company, problem)
 
         st.success("Report Generated Successfully")
-
         st.markdown(report)
 
     else:
