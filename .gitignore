@@ -1,5 +1,23 @@
+# Python
 .venv/
-.env
 __pycache__/
-reports/
 *.pyc
+.env
+
+# Generated reports
+reports/
+
+# React
+node_modules/
+dist/
+
+# Logs
+logs/
+*.log
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+
+# OS
+.DS_Store
